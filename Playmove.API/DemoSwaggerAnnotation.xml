@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Playmove.API</name>
+    </assembly>
+    <members>
+        <member name="M:Playmove.API.Controllers.AccountController.Autenticar(Playmove.API.Models.AuthenticationVM)">
+            <summary>
+            Faz a autenticação do usuário na API
+            </summary>
+            <remarks>
+            Realiza uma autenticação baseada em JWT. As informações ficam armazenadas no servidor, então a parte do cliente já possui as configurações necessárias, 
+            tendo como 5 minutos a duração do acesso. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a alteração e notificara os campos a serem corrigidos
+            </remarks>
+            <response code="200">Usuário autenticado com sucesso!.
+            </response>       
+            <response code="400">Informações de usuário incorretas.
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.AccountController.LimparCookies">
+            <summary>
+            Limpa a autenticação da API
+            </summary>
+            <remarks>
+            Remove as informações do token JWT do servidor, bloqueando o acesso não autorizado
+            </remarks>
+               /// <response code="200">Autenticação de acesso limpada com sucesso.
+            </response>       
+            <response code="500">Erro inesperado no servidor
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.AccountController.CriarUsuario(Playmove.API.Models.AuthenticationVM)">
+            <summary>
+            Cadastra um novo usuario na API
+            </summary>
+            <remarks>
+            Cadastra um novo usuário no sistema, autorizando acesso às demais áreas do sistema. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a alteração e notificara os campos a serem corrigidos
+            </remarks>
+            <response code="200">Usuario cadastrado com sucesso.
+            </response>       
+            <response code="500">Erro inesperado no servidor
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.AccountController.AddRole(Playmove.API.Models.RoleVM)">
+            <summary>
+            Cadastra uma nova "Role" na API
+            </summary>
+            <remarks>
+            Cadastra uma nova "Role" (papel) no sistema. 
+            </remarks>
+            <response code="200">Role cadastrada com sucesso.
+            </response>       
+            <response code="500">Erro inesperado no servidor
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.AccountController.AddRoleToUser(Playmove.API.Models.UserRoleVM)">
+            <summary>
+            Atribui uma "Role" para um usuário da API
+            </summary>
+            <remarks>
+            Atribui uma "role" existente para um usuário. Os usuários podem apenas acessar as areas dos sistemas atribuidas às suas "roles". Por padrão, apenas é necessario um usuario autenticado para acessar, podendo ser configurado posteriormente nos arquivos e ações das controladoras
+            </remarks>
+            <response code="200">Role atribuida ao usuário cadastrado com sucesso.
+            </response>       
+            <response code="500">Erro inesperado no servidor
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.AccountController.RemoveRoleToUser(Playmove.API.Models.UserRoleVM)">
+            <summary>
+            Remove uma "Role" para um usuário da API
+            </summary>
+            <remarks>
+            remove uma "role" existente de um usuario.
+            </remarks>
+            <response code="200">Role removida do usuário cadastrado com sucesso.
+            </response>       
+            <response code="500">Erro inesperado no servidor
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.FornecedorController.Fornecedores">
+            <summary>
+            Obtém todos os fornecedores cadastrados no sistema.
+            </summary>
+            <remarks>
+            O metodo retorna um objeto JSON com duas proprieades: uma contagem total de fornecedores e a lista com todos os fornecedores
+            </remarks>
+            <returns>Objeto JSON com duas propriedades: total de fornecedores (int) e Lista de fornecedores (Fornecedor).
+            </returns>
+            <response code="200">Lista de fornecedores encontrada com sucesso.
+            </response>
+            <response code="500">Erro interno no servidor.
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.FornecedorController.Fornecedores(System.Int32)">
+            <summary>
+            Faz a busca de um fornecedor no sistema.
+            </summary>
+            <remarks>
+            O metodo realiza a busca de um novo fornecedor no sistema usando seu ID como referência. Alguns campos retornados não possuem formatação ou pontuação.
+            </remarks>
+            <returns>Objeto do tipo "Fornecedor".
+            </returns>
+            <response code="200">Fornecedor encontrado com sucesso.
+            </response>       
+            <response code="404">Fornecedor não encontrado no sistema.
+            </response>
+            <response code="401">Requisição não autorizada pelo servidor.
+            </response>
+            <response code="500">Erro interno no servidor.
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.FornecedorController.Fornecedores(Playmove.API.ViewModel.FornecedorVM)">
+            <summary>
+            Realiza o cadastro de um novo fornecedor no sistema.
+            </summary>
+            <remarks>
+            O metodo realiza o cadastro de um novo fornecedor no sistema. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a inclusão e notificara os campos a serem corrigidos; 
+            o sistema também não permite a inclusão de um CNPJ já cadastrado anteriormente
+            </remarks>
+            <response code="200">Fornecedor cadastrado com sucesso.
+            </response>       
+            <response code="400">Erro em um ou mais campos de cadastro.
+            </response>
+                /// <response code="401">Requisição não autorizada pelo servidor.
+            </response>
+            <response code="500">Erro interno no servidor.
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.FornecedorController.Fornecedores(System.Int32,Playmove.API.ViewModel.FornecedorVM)">
+            <summary>
+            Realiza a atualização das informações de um fornecedor no sistma
+            </summary>
+            <remarks>
+            O metodo realiza a atualização de informações de um novo fornecedor no sistema. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a alteração e notificara os campos a serem corrigidos
+            o sistema também não permite a inclusão de um CNPJ já cadastrado anteriormente, mas permite que o CNPJ de um fornecedor seja alterado desde que mantenha a integridade do sistema.
+            </remarks>
+            <response code="200">Fornecedor atualizado com sucesso.
+            </response>       
+            <response code="400">Erro em um ou mais campos de cadastro.
+            </response>
+            <response code="401">Requisição não autorizada pelo servidor.
+            </response>
+            <response code="500">Erro interno no servidor.
+            </response>
+        </member>
+        <member name="M:Playmove.API.Controllers.FornecedorController._Fornecedores(System.Int32)">
+            <summary>
+            Faz a exclusão de um fornecedor no sistema.
+            </summary>
+            <remarks>
+            O metodo realiza a exclusão de um fornecedor no sistema usando seu ID como referência
+            </remarks>
+            <response code="200">Fornecedor excluido com sucesso!.
+            </response>       
+            <response code="404">Fornecedor não encontrado no sistema.
+            </response>
+            <response code="401">Requisição não autorizada pelo servidor.
+            </response>
+            <response code="500">Erro interno no servidor.
+            </response>
+        </member>
+    </members>
+</doc>
