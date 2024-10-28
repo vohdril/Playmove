@@ -63,7 +63,7 @@ namespace Playmove.API.ViewModel
             Endereco = model.Endereco;
             Cep = model.Cep;
             Telefone = model.Telefone;
-            //DataCadastro = model.DataCadastro;
+            DataCadastro = model.DataCadastro;
             Status = model.Status;
 
         }
@@ -80,7 +80,7 @@ namespace Playmove.API.ViewModel
                 Endereco = model.Endereco,
                 Cep = model.Cep,
                 Telefone = model.Telefone,
-                //DataCadastro = model.DataCadastro,
+                DataCadastro = model.DataCadastro,
                 Status = model.Status,
             };
 
@@ -108,7 +108,7 @@ namespace Playmove.API.ViewModel
                 Cidade = model.Cidade,
                 Estado = model.Estado,
                 Cep = model.Cep.Replace("-", ""),
-                //DataCadastro = model.DataCadastro,
+                DataCadastro = model.DataCadastro,
                 Status = model.Status,
             };
 

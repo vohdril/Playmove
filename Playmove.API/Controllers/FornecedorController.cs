@@ -122,7 +122,7 @@ namespace Playmove.API.Controllers
 
 
         /// <summary>
-        /// Realiza a atualização das informações de um fornecedor no sistma
+        /// Realiza a atualização das informações de um fornecedor no sistema
         /// </summary>
         /// <remarks>
         /// O metodo realiza a atualização de informações de um novo fornecedor no sistema. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a alteração e notificara os campos a serem corrigidos
@@ -162,6 +162,7 @@ namespace Playmove.API.Controllers
 
                     );
 
+            model.Id = id;
 
             return base.Editar(id, model, base.Service);
 

@@ -167,7 +167,7 @@ namespace Playmove.API.Controllers
         /// <remarks>
         /// Atribui uma "role" existente para um usuário. Os usuários podem apenas acessar as areas dos sistemas atribuidas às suas "roles". Por padrão, apenas é necessario um usuario autenticado para acessar, podendo ser configurado posteriormente nos arquivos e ações das controladoras
         /// </remarks>
-        /// <response code="200">Role atribuida ao usuário cadastrado com sucesso.
+        /// <response code="200">Role atribuída ao usuário cadastrado com sucesso.
         /// </response>       
         /// <response code="500">Erro inesperado no servidor
         /// </response>
@@ -183,7 +183,7 @@ namespace Playmove.API.Controllers
         }
 
         /// <summary>
-        /// Remove uma "Role" para um usuário da API
+        /// Remove uma "Role" atribuída de um usuário da API
         /// </summary>
         /// <remarks>
         /// remove uma "role" existente de um usuario.
