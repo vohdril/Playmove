@@ -126,7 +126,7 @@ namespace Playmove.API.Controllers
         [Route("CriarUsuario")]
         [ModelStateValidationActionFilter]
 
-        public async Task<JsonResult> CriarUsuario([FromBody] AuthenticationVM model)
+        public async Task<JsonResult> CriarUsuario([FromBody] UserRegisterVM model)
         {
 
             IdentityUser user = new IdentityUser();

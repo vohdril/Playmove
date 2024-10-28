@@ -29,7 +29,7 @@
             <response code="500">Erro inesperado no servidor
             </response>
         </member>
-        <member name="M:Playmove.API.Controllers.AccountController.CriarUsuario(Playmove.API.Models.AuthenticationVM)">
+        <member name="M:Playmove.API.Controllers.AccountController.CriarUsuario(Playmove.API.Models.UserRegisterVM)">
             <summary>
             Cadastra um novo usuario na API
             </summary>
@@ -60,14 +60,14 @@
             <remarks>
             Atribui uma "role" existente para um usuário. Os usuários podem apenas acessar as areas dos sistemas atribuidas às suas "roles". Por padrão, apenas é necessario um usuario autenticado para acessar, podendo ser configurado posteriormente nos arquivos e ações das controladoras
             </remarks>
-            <response code="200">Role atribuida ao usuário cadastrado com sucesso.
+            <response code="200">Role atribuída ao usuário cadastrado com sucesso.
             </response>       
             <response code="500">Erro inesperado no servidor
             </response>
         </member>
         <member name="M:Playmove.API.Controllers.AccountController.RemoveRoleToUser(Playmove.API.Models.UserRoleVM)">
             <summary>
-            Remove uma "Role" para um usuário da API
+            Remove uma "Role" atribuída de um usuário da API
             </summary>
             <remarks>
             remove uma "role" existente de um usuario.
@@ -128,7 +128,7 @@
         </member>
         <member name="M:Playmove.API.Controllers.FornecedorController.Fornecedores(System.Int32,Playmove.API.ViewModel.FornecedorVM)">
             <summary>
-            Realiza a atualização das informações de um fornecedor no sistma
+            Realiza a atualização das informações de um fornecedor no sistema
             </summary>
             <remarks>
             O metodo realiza a atualização de informações de um novo fornecedor no sistema. Os campos são validados automaticamente seguindo padrões de formatação e, caso estejam formatados incorretamente, o sistema não executará a alteração e notificara os campos a serem corrigidos
